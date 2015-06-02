@@ -48,35 +48,34 @@ Note that coordinates 0.0, 0.0, 0.0 is the centre of the window.
 
 ## 4 Define a Discriminated Union ##
 
-A simple F# discriminated union - which is what we'll define in this step - is similar to an enum in C# and Java in that they define a set of named constants.
+An F# discriminated union is similar to an enum in C# and Java in that it defines a set of named constants.
 
 Define a discriminated union type called Shape and is made up of the shapes we are able to draw - Cuboid, Cube, Cone and Cylinder.
 
 ## 5 Pattern Matching ##
 
-Pattern matching in F# is done using the match..with expression for instance this will print some text to the console depending on the value of an int
+Pattern matching in F# can be done using the match..with expression - for instance, this will print some text to the console depending on the value of an int:
 
 ``` fsharp
 match num with
-
-	| 3 -> printf "num is 3"
-	| 8 -> printf "num is 8"
-	| n when n < 10 -> printf "%d is less than 10" n
-	| _ -> printf "num is >= 10"
+| 3 -> printf "num is 3"
+| 8 -> printf "num is 8"
+| x -> printf "num is something else: %i" x
 ```
 
 Add another parameter to your draw function - this one will define which shape is going to be drawn and will be the discriminated union type defined above.
+
 Add a simple pattern match for each type of shape and draw the correct one.
 
 ## 6 Add values to the Discriminated Union ##
 
-Unlike enums a discriminated union can have a tuple associated with it rather than just a single value.  So our Cylinder needs two parameters for its dimension - height and width - so this would look like this
+Unlike enums a discriminated union can have types associated with it.  Our Cylinder needs two parameters for its dimension - height and width - so this would look like this:
 
 ``` fsharp
 Cylinder of float * float
 ```
 
-Now add dimensions for each shape to the discriminated union - then the shapes can be created with their dimensions, the Cylinder as defined above can be created like this:
+Add dimensions for each shape to the discriminated union - then the shapes can be created with their dimensions, the Cylinder as defined above can be created like this:
 
 ``` fsharp
 Cylinder (3.0, 1.0)
@@ -84,7 +83,7 @@ Cylinder (3.0, 1.0)
 
 and use the values in the pattern match to draw shapes with the dimensions that were passed in.
 
-## 7 Add record type ##
+## 7 Add a record type ##
 
 Add a record type that defines the shape, the coordinates and a colour.  Make the coordinates a tuple of float * float * float.  Replace the current parameters of the draw function with a single one of this record type.
 
@@ -124,7 +123,15 @@ let add3 x = (add1 >> add2) x
 
 Add a function that will take the coordinates as a float * float * float tuple and change the position of the shape up and to the left by, say, 0.5.  Use the >> operator to compose a new function made up of the function currently being passed into the draw function and this new one and pass this new function into draw.
 
-## 12 Read shapes from json feed ##
+## 12 Draw some cool stuff ##
+
+Using the code you've written, see what interesting things you can draw!
+
+You could try things like:
+* Repeating patterns of objects
+* Taking existing objects and modifying them
+
+## 13 Read shapes from json feed ##
 
 Use the [json type provider](http://fsharp.github.io/FSharp.Data/library/JsonProvider.html) to read shape definitions from the shapes.json file and create a list of shape records to pass into the draw function.
 
@@ -138,4 +145,5 @@ let shapesList = Shapes.Load("shapes.json")
 
 shapesList will then be a sequence of records and you can use intellisense to see the fields that are available.
 
-## 13 Draw some cool stuff ##
+
+
