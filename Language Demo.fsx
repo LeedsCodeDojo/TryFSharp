@@ -84,6 +84,8 @@ wb
 #load "packages/FSharp.Charting.0.82/FSharp.Charting.fsx"
 open FSharp.Charting
 
+wb.Countries.Albania.CapitalCity
+
 wb.Countries.``United Kingdom``
     .Indicators.``School enrollment, tertiary (% gross)``
 |> Chart.Line
@@ -94,7 +96,8 @@ let countries =
     wb.Countries.``United States`` |]
 
 [ for c in countries ->
-    c.Indicators.``School enrollment, tertiary (% gross)`` |> Chart.Line ]
+    c.Indicators.``School enrollment, tertiary (% gross)`` ]
+|> List.map Chart.Line
 |> Chart.Combine
 
 // Backup charting
