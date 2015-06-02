@@ -46,6 +46,10 @@ let square x =
 // YOUR TURN - create a function to add two numbers.
 // To test it, highlight it and load it into FSI, and you can call it from there like 'add 5 7;;'
 
+// Functions with no parameters need parentheses:
+let doStuff() = printfn "hi mum"
+doStuff()
+
 (*** Printing ***)
 
 // printfn lets you print stuff.
