@@ -8,3 +8,6 @@ open Functional3D
 open TryFsharpUtilities
 open System.Drawing
 open FSharp.Data
+open TryFs
+
+
