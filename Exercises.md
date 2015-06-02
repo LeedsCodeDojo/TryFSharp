@@ -11,19 +11,34 @@ Functions to draw shapes on screen are provided and are TryFs.cuboid, TryFs.cube
 
 ## 1 Define a Function ##
 
-In F# a function is defined like so
+Open the Script.fsx file, which you will modify.  Run the initial lines into F# Interactive (by selecting them and pressing Alt+Enter).
+
+There is a utility module referenced called TryFs which contains some handy functions.  For example, there are a few functions like this which can be used to create shapes:
 
 ``` fsharp
-let add number1 number2 = number1 + number
+TryFs.cylinder 0.0 0.0 0.0 1.0 2.0 Color.Green
 ```
 
-Firstly define a new function called draw, it should have no parameters and draw a red cube.  To show a shape a Drawing3D object should be passed into the TryFs.showIt function - as luck would have it each of the TryFs.* drawing functions return a Drawing3D instance so if you call TryFs.cube with the correct parameters and pass the result to showIt then you're done.
+You can find out what the parameters are using intellisense or by hovering the mouse over the function.
+
+Your first task is to define a new function called draw(), it should have no parameters and draw a red cube using one of the utility functions similar to the one above.  To show a shape a Drawing3D object should be passed into the TryFs.showIt function - this is what is created when you call TryFs.cylinder and the like.
+
+Remember:
+* If a function has no parameters, it needs parentheses (both in the definition and when you call it)
+* When you pass your TryFs.cube function to showIt, you'll need to wrap it in parenthesis due to the strict left-to-right compilation
 
 ## 2 Pipe Operator ##
 
-The F# forward pipe operator |> passes the value on its left to the function on its right.
+The F# forward pipe operator |> passes the value on its left to the function on its right.  So for example instead of
+``` fsharp
+add 5 10
+```
+you can do
+``` fsharp
+10 |> add 5
+```
 
-Now change the way the shape is passed to the showIt function to use the |> operator.
+Edit your draw() function to change the way the shape is passed to the showIt function to use the |> operator.
 
 ## 3 Add Function Parameters ##
 
