@@ -67,6 +67,8 @@ Add another parameter to your draw function - this one will define which shape i
 
 Add a simple pattern match for each type of shape and draw the correct one.
 
+Remember that your Discriminated Union needs to be declared above where it's used in the file.
+
 ## 6 Add values to the Discriminated Union ##
 
 Unlike enums a discriminated union can have types associated with it.  Our Cylinder needs two parameters for its dimension - height and width - so this would look like this:
@@ -80,12 +82,17 @@ Add dimensions for each shape to the discriminated union - then the shapes can b
 ``` fsharp
 Cylinder (3.0, 1.0)
 ```
-
 and use the values in the pattern match to draw shapes with the dimensions that were passed in.
 
 ## 7 Add a record type ##
 
-Add a record type that defines the shape, the coordinates and a colour.  Make the coordinates a tuple of float * float * float.  Replace the current parameters of the draw function with a single one of this record type.
+Add a record type that defines the shape, the coordinates and a colour, such as 'Object3D'.  Make the coordinates a tuple of float * float * float.  Replace the current parameters of the draw function with a single one of this record type.
+
+As a reminder, a record is defined and created like this:
+``` fsharp
+type myRecord = { Name: string; Age: int }
+let jim = {Name = "Jim"; Age = 34}
+```
 
 ## 8 Draw a list of shapes ##
 
