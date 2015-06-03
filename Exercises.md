@@ -48,7 +48,7 @@ Note that coordinates 0.0, 0.0, 0.0 is the centre of the window.
 
 ## 4 Define a Discriminated Union ##
 
-An F# discriminated union is similar to an enum in C# and Java in that it defines a set of named constants.
+An F# discriminated union is similar to an enum in C#/Java in that it defines a set of named constants.
 
 Define a discriminated union type called Shape and is made up of the shapes we are able to draw - Cuboid, Cube, Cone and Cylinder.
 
@@ -110,9 +110,7 @@ The with keyword works like this:
 
 ``` fsharp
 type myRecord = { Name: string; Age: int }
-
 let jim = {Name = "Jim"; Age = 34}
-
 let olderJim = {jim with Age = 44}
 ```
 
@@ -134,11 +132,10 @@ The records can be loaded from the json file like this
 
 ``` fsharp
 type Shapes = JsonProvider<"shapes.json">
-
 let shapesList = Shapes.Load("shapes.json")
 ```
 
-shapesList will then be a sequence of records and you can use intellisense to see the fields that are available.
+shapesList will then be a sequence of records and you can use intellisense to see the fields available.
 
 
 
