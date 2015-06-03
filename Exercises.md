@@ -102,35 +102,23 @@ Change the draw function to take a list of shape definition records and show the
 
 You should now be able to use your draw function and new-found F# skills to use a cylinder and a cone to draw a tower on the screen.
 
-## 10 Make coordinates an Option ##
+## 10 Generate a sequence of the same shape ##
 
-The F# Option type is a discriminated union that can be either Some(<datatype>) or None.
+Now try creating a function that will take a shape record and return a list of the same shape to display at different screen coordinates.  Rather than creating new shape records from scratch you should be able to use the with keyword to create the new shape records.
 
-Change the definition of the record type so that the coordinates tuple is an option type and pass a function to the draw function that will take an option of the coordinates tuple and return either the coordinates - when there are some - or a default position if the coordinates are None. 
-
-## 11 Compose a new function ##
-
-The function composition operator can be used to compose new functions from existing ones.  For instance if we define a function
+The with keyword works like this:
 
 ``` fsharp
-let add1 x = x + 1
+type myRecord = { Name: string; Age: int }
+
+let jim = {Name = "Jim"; Age = 34}
+
+let olderJim = {jim with Age = 44}
 ```
 
-and then another one
+In the above example olderJim.Name is Jim as it has been copied but olderJim.Age is updated to 44.
 
-``` fsharp
-let add2 x = x + 2
-```
-
- we could use the composition operator to create add3 from add1 and add2 like this
-
-``` fsharp
-let add3 x = (add1 >> add2) x
-```
-
-Add a function that will take the coordinates as a float * float * float tuple and change the position of the shape up and to the left by, say, 0.5.  Use the >> operator to compose a new function made up of the function currently being passed into the draw function and this new one and pass this new function into draw.
-
-## 12 Draw some cool stuff ##
+## 11 Draw some cool stuff ##
 
 Using the code you've written, see what interesting things you can draw!
 
@@ -138,7 +126,7 @@ You could try things like:
 * Repeating patterns of objects
 * Taking existing objects and modifying them
 
-## 13 Read shapes from json feed ##
+## 12 Read shapes from json feed ##
 
 Use the [json type provider](http://fsharp.github.io/FSharp.Data/library/JsonProvider.html) to read shape definitions from the shapes.json file and create a list of shape records to pass into the draw function.
 
