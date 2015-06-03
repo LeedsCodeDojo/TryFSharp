@@ -48,7 +48,7 @@ Note that coordinates 0.0, 0.0, 0.0 is the centre of the window.
 
 ## 4 Define a Discriminated Union ##
 
-An F# discriminated union is similar to an enum in C#/Java in that it defines a set of named constants.
+An F# DU is similar to an enum in C#/Java in that it defines a set of named constants.
 
 Define a discriminated union type called Shape and is made up of the shapes we are able to draw - Cuboid, Cube, Cone and Cylinder.
 
@@ -114,7 +114,7 @@ let jim = {Name = "Jim"; Age = 34}
 let olderJim = {jim with Age = 44}
 ```
 
-In the above example olderJim.Name is Jim as it has been copied but olderJim.Age is updated to 44.
+In the above example olderJim.Name is still "Jim" but olderJim.Age is updated to 44.
 
 ## 11 Draw some cool stuff ##
 
