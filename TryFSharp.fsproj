@@ -50,6 +50,7 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <None Include="Script.fsx" />
+    <None Include="Script_Adam_Matt.fsx" />
     <Compile Include="functional3d.fs" />
     <Compile Include="TryFsharpUtilities.fs" />
     <None Include="shapes.json" />
