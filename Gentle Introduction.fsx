@@ -43,8 +43,8 @@ let square x =
 
 // We don't use braces.  Indentation is used to define scope.
 
-// YOUR TURN - create a function to add two numbers.
-// To test it, highlight it and load it into FSI, and you can call it from there like 'add 5 7;;'
+// YOUR TURN - create a 'cube' function to raise the passed number to the power of 2. (The Power operator is **).
+// To test it, highlight it and load it into FSI, and you can call it from there like 'cube 2;;'
 
 // Functions with no parameters need parentheses:
 let doStuff() = printfn "hi mum"
